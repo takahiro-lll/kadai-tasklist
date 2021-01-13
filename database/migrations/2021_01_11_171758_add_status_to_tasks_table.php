@@ -14,7 +14,7 @@ class AddStatusToTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->char('status', 10);
+            $table->string('status', 10);
         });
     }
 
@@ -26,7 +26,7 @@ class AddStatusToTasksTable extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $task->dropColumn('status');
+            $table->dropColumn('status');
         });
     }
 }
