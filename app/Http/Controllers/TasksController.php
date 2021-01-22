@@ -19,7 +19,7 @@ class TasksController extends Controller
         $tasks =[];
         if (\Auth::check()) {
         $user = User::findOrFail(Auth::id());
-        $tasks = $user->tasks()->get();
+        $tasks = $user->tasks()->paginate(10);
         }
         return view('tasks.index', [ 'tasks' => $tasks, ]);
     }
